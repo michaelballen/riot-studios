@@ -1,0 +1,258 @@
+//box-sizing ftw
+* {
+	@include box-sizing(border-box);
+}
+
+html, body, .wrapper {
+	height:100%;
+	top:0;
+	position:relative;
+	overflow:hidden;
+	.touch & {
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+	}
+}
+
+html {
+	@include respond(not-small) {
+		overflow:hidden;
+	}
+}
+.wrapper {
+	@include stretch();
+	//position:fixed;
+}
+h1 {
+	font-size:32px;
+	margin-bottom:8px;
+}
+h2 {
+	font-size:18px;
+	margin-bottom:8px;
+}
+.content-inner.padded {
+	padding:1.5em;
+}
+
+body {
+	@include waves();
+}
+p {
+	line-height:1.5;
+	&.small {
+		font-size:0.75em;
+	}
+}
+a {
+	color:inherit;
+	text-decoration:none;
+	&:visited {
+		&.btn-primary {
+			color: white;
+		}
+	}
+}
+.btn-group-vertical {
+	.btn {
+		@include border-radius(0);
+		border-top:none 0;
+		&:first-child {
+			@include border-radius(3px 3px 0 0);
+			border-top:1px solid #ddd;
+		}
+		&:last-child {
+			@include border-radius(0 0 3px 3px);
+		}
+	}
+}
+img {
+	&.full-width {
+		width:100%;
+		height:auto;
+	}
+}
+input {
+	display:inline-block;
+	border:1px solid $gray;
+	padding:0.3em 0.5em;
+	@include border-radius(3px);
+	color:$gray;
+	background-color:$white;
+	@include box-shadow(inset 0 1px 1px rgba(0,0,0,.075));
+	&:focus {
+		border-color: rgba(82,168,236,.8);
+		outline: 0;
+		outline: thin dotted \9; /* IE6-9 */
+		@include box-shadow(inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6));
+	}
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.global-width {
+	width:96%;
+	max-width:1520px;
+	margin:0 auto;
+}
+.wrapper {
+	height:100%;
+	//visibility:hidden;
+	.js-unloaded & {
+		visibility:hidden;
+	}
+}
+.ir {
+	//image replace by h5bp
+	font: 0/0 a;
+	color: transparent;
+	text-shadow: none;
+	background-color: transparent;
+	border: 0;
+}
+
+.dots {
+	text-decoration:none;
+}
+
+article ul {
+	list-style: disc outside;
+	line-height:1.5;
+	margin-bottom:1em;
+	margin-left:1.5em;
+}
+article ol {
+	list-style: decimal inside;
+	line-height:1.5;
+}
+
+.three-lines {
+	display:block;
+	text-align:center;
+	width:24px;
+	span {
+		@include border-radius(1px);
+		margin-top:3px;
+		height:2px;
+		width:24px;
+		background:$dark-text;
+		display:block;
+		&:first-child {
+			margin-top:0;
+		}
+		.wood & ,#mobile-social-btn & {
+			@include box-shadow(0 1px 0 rgba(255,255,255,0.6));
+		}
+		.gray-texture, .info-con & {
+			@include box-shadow(0 1px 0 rgba(0,0,0,0.9));
+		}
+	}
+	.rotated & {
+		width:auto;
+		height:24px;
+		span {
+			margin-top:0;
+			margin-left:3px;
+			width:2px;
+			height:24px;
+			float:left;
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+}
+
+.close-btn {
+	background:$gray;
+	color:$black;
+	display:inline-block;
+	text-decoration:none;
+	text-align:center;
+	font-size:28px;
+	line-height:26px;
+	font-weight:bold;
+	text-shadow:none;
+	position:absolute;
+	top:8px;
+	right:12px;
+	width:28px;
+	height:28px;
+	@include border-radius(50%);
+	z-index:300;
+	&:hover {
+		background:$red;
+		color:$white;
+	}
+	@include respond(not-small){
+		.touch & {
+			font-size:48px;
+			line-height:48px;
+			width:48px;
+			height:48px;
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+			&:active {
+				background:$red;
+				color:$white;
+			}
+		}
+	}
+}
+
+.three-loading-dots {
+	display:inline-block;
+	padding-top:1px;
+	span {
+		display:inline-block;
+		margin-left:4px;
+		width:8px;
+		height:8px;
+		background:$gray;
+		@include border-radius(50%);
+		-webkit-animation: fade 2s infinite; /* Safari 4+ */
+		-moz-animation:    fade 2s infinite; /* Fx 5+ */
+		-o-animation:      fade 2s infinite; /* Opera 12+ */
+		animation:         fade 2s infinite; /* IE 10+ */
+		&:first-child {
+			margin-left:0;
+		}
+		&:nth-child(2) {
+			-webkit-animation-delay: 0.2s;
+			-moz-animation-delay:    0.2s;
+			-o-animation-delay:      0.2s;
+			animation-delay:         0.2s;
+		}
+		&:nth-child(3) {
+			-webkit-animation-delay: 0.4s;
+			-moz-animation-delay:    0.4s;
+			-o-animation-delay:      0.4s;
+			animation-delay:         0.4s;
+		}
+	}
+}
+
+@-webkit-keyframes fade {
+	0%, 100%   { opacity: 0; }
+	50% { opacity: 1; }
+}
+@-moz-keyframes fade {
+	0%, 100%   { opacity: 0; }
+	50% { opacity: 1; }
+}
+@-o-keyframes fade {
+	0%, 100%   { opacity: 0; }
+	50% { opacity: 1; }
+}
+@keyframes fade {
+	0%, 100%   { opacity: 0; }
+	50% { opacity: 1; }
+}
+
+.hidden {
+	visibility:hidden;
+	display:none !important;
+}

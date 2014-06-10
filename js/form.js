@@ -1,0 +1,1 @@
+require(['head', 'plugins/ajax-form']);

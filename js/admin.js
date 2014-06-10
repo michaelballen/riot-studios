@@ -1,0 +1,1 @@
+require(['plugins/riot-plugins', 'vendor/bootstrap/bootstrap-dropdown', 'plugins/admin-edit-status']);

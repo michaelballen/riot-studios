@@ -1,0 +1,21 @@
+.one-nation-under-god {
+	.content {
+		background:#0f0f0f url('../img/onug-page-background.jpg') no-repeat scroll center -20px;
+		@include background-size(100% auto);
+		color:#e0e0e1;
+		h1 {
+			margin:0;
+			padding:12px;
+		}
+		.left-side {
+			img {
+				margin-top:38px;
+			}
+		}
+	}
+	@include respond(custom, 0, 420px){
+		.content .trailer-container iframe {
+			max-height:220px;
+		}
+	}
+}

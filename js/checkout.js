@@ -1,0 +1,1 @@
+require(['head', 'plugins/product-slider', 'plugins/shopping-cart']);

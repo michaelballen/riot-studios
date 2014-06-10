@@ -1,0 +1,33 @@
+
+//floats
+.fltlt {
+	float:left;
+}
+.fltrt {
+	float:right;
+}
+.noflt {
+	float:none;
+}
+.clear {
+	clear:both;
+}
+.clrlt {
+	clear:left;
+}
+.clrrt {
+	clear:right;
+}
+.noclr {
+	clear:none;
+}
+.group {
+	zoom: 1;
+	&:before, &:after {
+		content: "";
+		display: table;
+	}
+	&:after {
+		clear: both;
+	}
+}

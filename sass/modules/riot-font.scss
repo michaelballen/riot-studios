@@ -1,0 +1,135 @@
+@font-face {
+	font-family: 'Riot-Studios';
+	src:url('../fonts/Riot-Studios.eot?-lpjqae');
+	src:url('../fonts/Riot-Studios.eot?#iefix-lpjqae') format('embedded-opentype'),
+		url('../fonts/Riot-Studios.woff?-lpjqae') format('woff'),
+		url('../fonts/Riot-Studios.ttf?-lpjqae') format('truetype'),
+		url('../fonts/Riot-Studios.svg?-lpjqae#Riot-Studios') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+[class^="ifont"], [class*=" ifont"] {
+	font-family: 'Riot-Studios';
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+.ifontmenu:before {
+	content: "\6c";
+}
+.ifontmovie:before {
+	content: "\61";
+}
+.ifontimage:before {
+	content: "\70";
+}
+.ifontfacebook:before {
+	content: "\66";
+}
+.ifonttwitter:before {
+	content: "\74";
+}
+.ifontcrosshair:before {
+	content: "\63";
+}
+.ifontfilm:before {
+	content: "\64";
+}
+.ifontblog:before {
+	content: "\62";
+}
+.ifontinfo:before {
+	content: "\69";
+}
+.ifontplay:before {
+	content: "\76";
+}
+.ifontriot-logo:before {
+	content: "\72";
+}
+.ifontcart:before {
+	content: "\73";
+}
+.ifontmedia:before {
+	content: "\6d";
+}
+.ifonteye:before {
+	content: "\65";
+}
+.ifontmail:before {
+	content: "\45";
+}
+.ifontplay-2:before {
+	content: "\3e";
+}
+.ifontvolume-low:before {
+	content: "\7b";
+}
+.ifontpause:before {
+	content: "\7c";
+}
+.ifontvolumevolume-medium:before {
+	content: "\7d";
+}
+.ifontexpand:before {
+	content: "\22";
+}
+.ifontcd:before {
+	content: "\6f";
+}
+.ifontvolume-mute:before {
+	content: "\21";
+}
+.ifonthome:before {
+	content: "\68";
+}
+.ifontarrow-right:before {
+	content: "\23";
+}
+.ifontarrow-left:before {
+	content: "\24";
+}
+.ifontbubble:before {
+	content: "\25";
+}
+.ifontuser:before {
+	content: "\26";
+}
+.ifontusers:before {
+	content: "\67";
+}
+.ifontcheckmark:before {
+	content: "\27";
+}
+.ifontdisk:before {
+	content: "\28";
+}
+.ifontstar:before {
+	content: "\29";
+}
+.ifontattachment:before {
+	content: "\2a";
+}
+.ifontreply:before {
+	content: "\2b";
+}
+.ifontloop:before {
+	content: "\2d";
+}
+.ifontrioters-logo:before {
+	content: "\2c";
+}
+.ifontinstagram:before {
+	content: "\e600";
+}
+.ifont {
+	font-family:'Riot-Studios';
+	-webkit-font-smoothing: antialiased;
+}

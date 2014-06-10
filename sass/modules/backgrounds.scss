@@ -1,0 +1,185 @@
+.wood {
+	@include wood;
+}
+.gray-texture {
+	@include gray-texture;
+}
+.dark-leather {
+	background:#222 url('../img/dark-leather.jpg') repeat;
+}
+.horizontal-dots {
+	width:18px;
+	height:6px;
+	background:url('../img/horizontal-dots.png') center;
+	display:inline-block;
+	&.white {
+		background-image:url('../img/horizontal-dots-white.png');
+	}
+}
+.wood-header, .wood-footer {
+	z-index:1000;
+	height:$mobile-headfoot-height;
+	left:0;
+	right:0;
+	position:absolute;
+	@include respond(not-small) {
+		height: $headfoot-height;
+	}
+}
+.wood-header {
+	top:0;
+	background: transparent url('../img/wood-top.png') repeat-x top left;
+}
+.wood-footer {
+	@include text-shadow(light);
+	color:$dark-text;
+	bottom:0;
+	background: transparent url('../img/wood-bottom.png') repeat-x top left;
+	@include respond(not-small) {
+		height:$desktop-footer-height;
+		background-image: url('../img/wood-bottom-large.png');
+	}
+	ul {
+		margin-top:3px;
+		line-height:29px;
+	}
+	.up-button {
+		width:49px;
+		height:32px;
+		background: transparent url('../img/footer-arrows-up.png') no-repeat center;
+	}
+}
+
+//reusable
+.measure-line {
+	@include box-shadow(4px 0 2px rgba(0,0,0,0.3));
+	.csstransforms & {
+		@include translate(50%, 0);
+		//@include transition(transform 0.4s ease-out);
+	}
+	.no-csstransforms3d & {
+		left:50%;
+		//@include transition(left 0.4s ease-out);
+	}
+	&.trans {
+		.no-csstransforms3d & {
+			@include transition(left 0.4s ease-out);
+		}
+		.csstransforms3d & {
+			@include transition(transform 0.4s ease-out);
+		}
+	}
+	background:$red;
+	position:absolute;
+	width:2px;
+	height:100%;
+	&:before {
+		display:block;
+		content:"";
+		width: 0; 
+		height: 0; 
+		border-left: 4px solid transparent;
+		border-right: 4px solid transparent;
+		border-top: 6px solid $red;
+		position:absolute;
+		left:-3px;
+		top:0;
+	};
+}
+//awww yeah
+#do-not-push {
+	display:none;
+	line-height:40px;
+	width:160px;
+	position:absolute;
+	top:auto;
+	bottom:32px;
+	left:50%;
+	margin-left:-80px;
+	@include border-radius(3px);
+	text-align:center;
+	text-transform:uppercase;
+	font-size:12px;
+	background-color:#ededed;
+	color:#fefefe;
+	text-shadow:0 1px 1px rgba(0,0,0,0.4);
+	@include box-shadow(inset 0 -8px 16px rgba(0,0,0,0.1), inset -1px -1px 1px 1px rgba(0,0,0,0.1), inset 1px 1px 1px 1px rgba(255,255,255,0.8));
+	@include transition(all 0.3s ease-out);
+	border:1px solid #ddd;
+	cursor:pointer;
+	&:hover {
+		background-color:#bc2323;
+		text-shadow:0 1px 2px rgba(0,0,0,1);
+		border:1px solid #930c0c;
+		@include box-shadow(inset 0 -8px 16px rgba(0,0,0,0.1), inset -1px -1px 1px 1px rgba(0,0,0,0.1), inset 1px 1px 1px 1px rgba(255,255,255,0.3), 0px 0px 16px rgba(255,0,0,0.4));
+	}
+	@media screen and (min-height:670px) {
+		display:block;
+	}
+}
+.loading {
+	background-repeat:no-repeat;
+	background-position:center;
+	background-image:url('../img/loading24x24.gif');
+	@media (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5) {
+		background-image:url('../img/loading24x24@2x.gif');
+		@include background-size(24px 24px);
+	}
+}
+#page-loading {
+	@extend .loading;
+	display:none;
+	position:absolute;
+	@include opacity(0);
+	bottom:68px;
+	top:10px;
+	left:0;
+	right:0;
+	@include transition(opacity 0.3s ease-in-out 0.1s);
+	background-color:rgba(0,0,0,0.7);
+	z-index:800;
+	&:after {
+		text-shadow:0 -1px 0 black;
+		content:"LOADING";
+		display:block;
+		position:absolute;
+		color:white;
+		text-align:center;
+		top:50%;
+		line-height:40px;
+		margin-top:-50px;
+		width:100%;
+		font-size:1.2em;
+	}
+	body.page-loading  & {
+		&.on {
+			@include opacity(1);
+		}
+	}
+	body.page-loaded & {
+		@include opacity(0);
+	}
+	body.page-loading &, body.page-loaded & {
+		display:block;
+	}
+	@include respond (not-small){
+		background-position:center 65px;
+		@include border-radius(12px);
+		background-color:rgba(0,0,0,0.8);
+		top:50%;
+		bottom:auto;
+		left:50%;
+		right:auto;
+		width:200px;
+		height:120px;
+		margin-left: -200px * 0.5;
+		margin-top: -120px * 0.5;
+		z-index:1000;
+		border:2px solid black;
+		@include box-shadow(0 2px 8px rgba(0,0,0,0.8));
+		&:after {
+			margin-top:0;
+			top:20px;
+		}
+	}
+}

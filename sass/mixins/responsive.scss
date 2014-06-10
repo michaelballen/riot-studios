@@ -1,0 +1,102 @@
+//responsive mixin
+@mixin respond($media, $bp_small: 640, $bp_large: 1024) {
+	@if $media == small {
+		@media only screen and (max-width: $break-small) { @content; }
+	}
+	@else if $media == not-small {
+		@media only screen and (min-width: $break-small + 1) { @content; }
+	}
+	@else if $media == medium {
+		@media only screen and (min-width: $break-small + 1) and (max-width: $break-large - 1) { @content; }
+	}
+	@else if $media == not-medium {
+		@media only screen and (min-width: $break-large) { @content; }
+	}
+	@else if $media == large {
+		@media only screen and (min-width: $break-large) and (max-width: $break-huge - 1) { @content; }
+	}
+	@else if $media == huge {
+		@media only screen and (min-width: $break-huge) { @content; }
+	}
+	@else if $media == custom {
+		@media only screen and (min-width: $bp_small) and  (max-width: $bp_large) { @content; }
+	}
+}
+
+@mixin retina($file, $type, $width, $height) {
+	background-image: url($file + '.' + $type);
+	@media (-webkit-min-device-pixel-ratio: 1.5), (-moz-min-device-pixel-ratio: 1.5) {
+		& {
+			background-image: url($file + '@2x.' + $type);
+			background-size: $width $height;
+			@include background-size($width $height);
+		}
+	}
+}
+
+//responsive classes
+.hide-mobile {
+	@include respond(small){
+		display:none !important;
+	}
+}
+.hide-desktop {
+	@include respond(not-small){
+		display:none !important;
+	}
+}
+.hide-tablet {
+	@include respond(medium){
+		display:none !important;
+	}
+}
+.show-mobile {
+	@include respond(not-small){
+		display:none !important;
+	}
+}
+.show-tablet {
+	display:none;
+	@include respond(medium){
+		display:inherit !important;
+	}
+}
+.show-desktop {
+	display:none;
+	@include respond(not-medium){
+		display:inherit !important;
+	}
+}
+.show-huge {
+	display:none;
+	@include respond(huge){
+		display:inherit !important;
+	}
+}
+
+.hide-medium {
+	@include respond(medium){
+		display:none !important;
+	}
+}
+
+.touch .hide-touch {
+	display:none;
+}
+.show-touch {
+	display:none;
+	.touch & {
+		display:inherit;
+	}
+}
+
+.span1of2 {
+	float:left;
+	margin-left:2%;
+	&:first-child {
+		margin-left:0;
+	}
+}
+.span1of2 {
+	width:49%;
+}

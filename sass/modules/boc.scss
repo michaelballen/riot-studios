@@ -1,0 +1,44 @@
+.beware-of-christians {
+	.content {
+		nav {
+			position:absolute;
+			bottom:-1em;
+			width:100%;
+			left:0;
+			text-align:center;
+			display:none;
+			text-transform:uppercase;
+			font-weight:bold;
+			margin-left:1em;
+			li {
+				display:inline-block;
+				color:white;
+				margin:0 1em;
+				@include transition(color 0.3s ease-out);
+				position:relative;
+				text-shadow:0 0 6px black;
+				font-size:14px;
+				&:before {
+					content:"\2022";
+					display:block;
+					position:absolute;
+					left:-20px;
+				}
+				&:hover {
+					color:$yellow;
+					&:before {
+						color:white;
+					}
+				}
+				&:first-child:before {
+					display:none;
+				}
+			}
+		}
+		@include respond(huge){
+			nav {
+				display:block;
+			}
+		}
+	}
+}

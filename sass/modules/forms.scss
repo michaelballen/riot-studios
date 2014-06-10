@@ -1,0 +1,94 @@
+form {
+	label {
+		line-height:1.5;
+		&.error {
+			position:absolute;
+			color:$red;
+			@include border-radius(3px);
+			top:-6px;
+			right:0;
+			background:white;
+			border:1px solid $red;
+			padding:6px;
+			font-size:14px;
+			white-space:nowrap;
+			margin:0;
+			&:after {
+				content:"";
+				display:block;
+				width: 0; 
+				height: 0; 
+				border-left: 8px solid transparent;
+				border-right: 8px solid transparent;
+				border-top: 8px solid $red;
+				position:absolute;
+				top:100%;
+				right:10px;
+			}
+		}
+	}
+	input[type="text"], input[type="email"], input[type="number"], input[type="tel"], select {
+		width:100%;
+		margin-bottom:0.75em;
+		&.invalid, &.error {
+			color:$red;
+			border:2px solid $red;
+			//@include box-shadow(0 0 6px rgba(200,0,0,0.07));
+			&:focus {
+				@include box-shadow(0 0 8px rgba(240,0,0,0.5));
+			}
+		}
+	}
+	.form-row {
+		margin-bottom:1em;
+	}
+	.control-group {
+		position:relative;
+		&.half {
+			float:left;
+			width:49%;
+			margin-left:2%;
+			&.first {
+				margin-left:0;
+			}
+			input {
+				width:100%;
+			}
+		}
+		&.full {
+			width:100%;
+			input, textarea {
+				width:100%;
+			}
+		}
+		&.no-label {
+			label.error {
+				top:-35px;
+			}
+		}
+	}
+	input[type="checkbox"] {
+		margin-right:1em;
+	}
+	@include respond(not-medium){
+		.control-group.half-desktop {
+			width:49%;
+			margin-left:2%;
+			float:left;
+			&.half-desktop-first {
+				margin-left:0;
+			}
+		}
+	}
+}
+
+.submit-btn, .btn.big {
+	width:100%;
+	padding:1em 0;
+	font-size:16px;
+	font-weight:bold;
+	display:block;
+	.btn.big + &, &.margin {
+		margin-top:0.5em;
+	}
+}

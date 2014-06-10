@@ -1,0 +1,109 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+//bootstrap first so we can override their mixins w/ compass
+@import "bootstrap/_variables";
+@import "bootstrap/_mixins";
+$btnSuccessBackground: #7fa64d;
+@import "bootstrap/_buttons";
+@import "bootstrap/_button-groups";
+
+// compass mixins
+@import "compass/reset";
+@import "compass/css3";
+@import "compass/typography";
+@import "compass/layout";
+
+//prep vars/mixins
+@import "mixins/variables";
+$break-large:1200px;
+@import "mixins/mixins";
+@import "mixins/responsive";
+@import "floats";
+//@import "mixins/icons";
+@import "modules/riot-font";
+
+//bootstrap modules
+@import "bootstrap/_forms";
+
+$gray: #555959;
+$darkBlue: #1e2626;
+$lightBlue: #3d99aa;
+$whiteBlue: #e8e7e9;
+$green: #7fa64d;
+$titleColor: #CACECD;
+$globalWidth: 1200px;
+
+* {
+	@include box-sizing(border-box);
+}
+
+body.login {
+	background-image: url('../img/wood.jpg');
+	font-family:'Open Sans', Helvetica, Arial, sans-serif;
+	.multiplebgs & {
+		background-image:linear-gradient(color-stops(rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.3) 100%)), url('../img/wood.jpg');
+	}
+	.multiplebgs.backgroundsize & {
+		background-image:linear-gradient(color-stops(rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.3) 100%)), url('../img/wood@2x.jpg');
+		background-size:auto, 200px;
+	}
+}
+
+#login {
+	width:300px;
+	padding-top:80px;
+	h1 {
+		margin-bottom:1em;
+		a {
+			width:300px;
+			height:302px;
+			background: url('../../img/logo-desktop.png') no-repeat center center;
+			@include background-size(300px);
+		}
+	}
+	p.submit {
+		@extend .group;
+	}
+	p.forgetmenot {
+		float:none;
+		margin-bottom:1em;
+		text-align:center;
+		label {
+			font-size:14px;
+		}
+	}
+	form {
+		width:300px;
+		margin-left:0;
+		border:none 0;
+		padding:24px;
+		@include box-shadow(inset 0 1px 4px rgba(0,0,0,0.4), 0 1px 4px rgba(255,255,255,0.3));
+		.button.button-primary {
+			@include buttonBackground($btnPrimaryBackground, $btnPrimaryBackgroundHighlight);
+			font-size:16px;
+			padding:0.6em;
+			height:auto;
+			display:block;
+			width:100%;
+		}
+	}
+	input[type="checkbox"] {
+		margin-top:3px;
+	}
+	#backtoblog {
+		display:none;
+	}	
+	#nav {
+		font-style:italic;
+		text-align:center;
+		margin:0;
+		text-shadow:0 1px 1px rgba(255,255,255,0.5);
+		a {
+			color:$grayDark !important;
+			text-decoration:none;
+			&:hover {
+				text-decoration:underline;
+			}
+		}
+	}
+}

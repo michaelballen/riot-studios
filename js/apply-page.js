@@ -1,0 +1,1 @@
+require(['head', 'plugins/riot-plugins', 'plugins/apply-page']);

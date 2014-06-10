@@ -1,0 +1,300 @@
+#main-nav {
+	position:absolute;
+	bottom:$mobile-headfoot-height;
+	right:0;
+	left:0;
+	height:60px;
+	.logo {
+		@extend .ir;
+		width:72px;
+		height:72px;
+		left:50%;
+		margin-left:-36px;
+		bottom:-10px;
+		display:block;
+		position:absolute;
+		z-index:1001;
+		@include retina('../img/logo-mobile', 'png', 72px, 72px);
+	}
+	//mobile
+	.nav-menu {
+		z-index:1000;
+		position:absolute;
+		left:0;
+		right:0;
+		bottom:0;
+		height:$mobile-nav-height;
+		background:#fff;
+		background-image: url('../img/straight-lines.png');
+		background-position:10px top;
+		background-repeat:repeat-x;
+		@include box-shadow(inset 0 10px 20px rgba(0,0,0,0.33));
+		&:before {
+			content:"";
+			display:block;
+			position:absolute;
+			width:100%;
+			height:8px;
+			top:-8px;
+			background: transparent url('../img/wood-bottom.png') repeat-x left -1px;
+		}
+		li {
+			height:50px;
+			width:18%;
+			float:left;
+			text-align:center;
+			.ifont {
+				width:100%;
+				display:inline-block;
+				font-size:32px;
+				line-height:32px;
+				padding-top:18px;
+				color:$dark-text;
+			}
+			&.media {
+				margin-left:28%;
+				.ifont {
+					font-size:34px;
+					padding-top:14px;
+				}
+			}
+			&.store .ifont {
+				position:relative;
+				left:2px;
+			}
+			.active, .inactive {
+				display:none;
+			}
+			.title {
+				@extend .ir;
+			}
+			a {
+				width:100%;
+				height:100%;
+				display:block;
+			}
+		}
+	//end .nav-menu
+	}
+	.home-con {
+		cursor:pointer;
+		position: absolute;
+		left: 14px;
+		top: 327px;
+		color:#dddddd;
+		text-shadow: 0 0 0px transparent;
+		@include transition(color 0.5s ease-out, text-shadow 0.5s ease-out);
+		&.active {
+			color: lighten(desaturate($blue, 20%), 5%);
+			text-shadow: 0 0 5px $blue;
+		}
+	}
+	.nav-ticker {
+		display:none;
+		position:relative;
+		background:white;
+		width:160px;
+		height:30px;
+		overflow:hidden;
+		margin:1.5em auto;
+		text-align:center;
+		text-transform:uppercase;
+		font-size:0.75em;
+		border:1px solid #e3e3e3;
+		color:$grayDark;
+		@include border-radius(3px);
+		@include box-shadow(inset 0 3px 12px rgba(0,0,0,0.15), 0px -1px 1px 1px rgba(0,0,0,0.2), 2px 2px 2px rgba(255,255,255,1));
+		.outer-window {
+			display:block;
+			position:absolute;
+			width:100%;
+			height:30px;
+			top:0;
+			div {
+				font-weight:bold;
+				color:$blue;
+				@include transition(top 0.2s ease-out);
+				line-height:30px;
+				position:absolute;
+				width:100%;
+				height:30px;
+				top:-30px;
+				&.active {
+					top:0;
+				}
+				&.out {
+					top:30px;
+				}
+				&.off {
+					display:none;
+					@include transition(none);
+					top:-30px;
+				}
+				&.hover {
+					top:0;
+				}
+			}
+		}
+		&.show-temp {
+			.outer-window {
+				bottom:-30px;
+			}
+		}
+	}
+	//desktop
+	@include respond(not-small){
+		top:$headfoot-height;
+		bottom:$desktop-footer-height;
+		width:$desktop-left-width;
+		right:auto;
+		height:auto;
+		z-index:900;
+		.nav-ticker {
+			display:block;
+		}
+		.nav-menu {
+			width:100%;
+			position:relative;
+			top:0;
+			background:transparent;
+			@include box-shadow(none);
+			height:464px;
+			&:before {
+				display:none;
+			}
+			ul {
+				position:absolute;
+				width:100%;
+				//height:100%;
+				z-index:1;
+				li {
+					background:#dfdedf;
+					@include box-shadow(0 -1px 2px rgba(0,0,0,0.6), 0 1px 3px white, inset 0 0 6px 1px rgba(0,0,0,0.1));
+					@include border-radius(50%);
+					width:60px;
+					height:60px;
+					position:absolute;
+					display:block;
+					@include transition(background-color 0.5s ease-out, box-shadow 0.5s ease-out);
+					.ifont {
+						color:white;
+					}
+					&.about, &.store {
+						right:80px;
+					}
+					&.blog, &.media {
+						right:48px;
+					}
+					&.about {
+						top:0;
+					}
+					&.blog {
+						top:$nav-button-spread;
+					}
+					&.media {
+						top:$nav-button-spread * 2.1;
+					}
+					&.store {
+						top:$nav-button-spread * 3.1;
+					}
+					&.active, &.active:hover {
+						background-color:lighten($blue, 5%);
+						@include box-shadow(0 -1px 2px rgba(0,0,0,0.6), 0 1px 3px white, inset 0 0 6px 1px rgba(0,0,0,0.1), 0 0 16px 1px rgba(4,174,244,0.9));
+					}
+					&:hover {
+						background-color: mix(#dfdedf, $blue, 75%);
+						.ifont {
+							@include opacity(0.9);
+						}
+					}
+				}
+			}
+		}
+		.logo {
+			background-image: url('../img/logo-desktop.png');
+			background-size: 200px;
+			width:200px;
+			height:200px;
+			top:auto;
+			bottom:auto;
+			left:auto;
+			right:auto;
+			margin:16px auto;
+			position:relative;
+		}
+		.chrome-knob {
+			position:absolute;
+			z-index:100;
+			width:70px;
+			height:70px;
+			left:20%;
+			top:314px;
+			background-color:#777777;
+			background-image:url('../img/knob-shine.png');
+			background-position:center;
+			@include border-radius(50%);
+			@include box-shadow(0 0 1px 1px rgba(255,255,255,0.3), 0 2px 2px 3px rgba(0,0,0,0.7), inset 0 3px 3px rgba(255,255,255,0.4), inset 0 0 6px 2px rgba(0,0,0,0.2));
+			&.chrome-knob-inner {
+				width:56px;
+				height:56px;
+				top:7px;
+				left:7px;
+				position:absolute;
+				z-index:200;
+				background-color:transparent;
+				@include box-shadow(0 0 1px 1px rgba(255,255,255,0.3), 0 2px 2px 3px rgba(0,0,0,0.5), inset 0 3px 3px rgba(255,255,255,0.4), inset 0 0 6px 2px rgba(0,0,0,0.2));
+			}
+			.chrome-knob-pointer {
+				width:70px;
+				height:70px;
+				top:0px;
+				left:0px;
+				background:transparent;
+				background-image:url('../img/knob-texture.png');
+				background-position:center;
+				@include border-radius(50%);
+				position:absolute;
+				@include transform(rotate(0deg));
+				@include transition(transform 0.7s ease-out);
+				z-index:100;
+				&:before {
+					background-image:url('../img/knob-triangle@2x.png');
+					background-size: 17px 22px;
+					content:"";
+					display:block;
+					position:absolute;
+					top:50%;
+					left:-9px;
+					margin-top:-10px;
+					width: 17px; 
+					height: 22px;
+				}
+			}
+			&.home {
+				.chrome-knob-pointer {
+					@include transform(rotate(0deg));
+				}
+			}
+			&.about {
+				.chrome-knob-pointer {
+					@include transform(rotate(119deg));
+				}
+			}
+			&.blog {
+				.chrome-knob-pointer {
+					@include transform(rotate(163deg));
+				}
+			}
+			&.media {
+				.chrome-knob-pointer {
+					@include transform(rotate(206deg));
+				}
+			}
+			&.store {
+				.chrome-knob-pointer {
+					@include transform(rotate(244deg));
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,77 @@
+.admin-header {
+	margin-bottom:1em;
+	.right-actions {
+		.btn-group {
+			display:inline-block;
+			text-shadow:none;
+		}
+		.btn-group-title {
+			display:inline-block;
+			position: relative;
+			top: 3px;
+			margin-right: 0.5em;
+		}
+	}
+}
+
+.admin-view-item {
+	border-top:1px solid $grayLight;
+	padding:1em 0.5em;
+	position:relative;
+	&:first-child {
+		border-top:none 0;
+	}
+	h3 {
+		text-align:left;
+	}
+	a {
+		&:hover {
+			text-decoration:underline;
+		}
+	}
+	.actions {
+		position:absolute;
+		top:0.75em;
+		right:0.5em;
+		display:block;
+		color:$gray;
+		.ifont {
+			font-size:20px;
+		}
+		.ifonteye {
+			position:relative;
+			top:8px;
+			font-size:24px;
+		}
+		a {
+			color:$gray;
+			&:hover {
+				text-decoration:none;
+				.ifont {
+					color:$grayDark;
+				}
+			}
+			&.active {
+				.ifont {
+					color:$blue;
+				}
+				.ifontstar {
+					color:$yellow;
+				}
+				.ifontcheckmark {
+					color:$green;
+				}
+			}
+		}
+		li {
+			display:inline-block;
+			margin-left:0.5em;
+			&:first-child {
+				margin-left:0;
+			}
+		}
+	}
+	&:hover {
+		background:#efefef;
+	}
+}

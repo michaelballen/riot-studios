@@ -1,0 +1,108 @@
+#desktop-footer {
+	position:absolute;
+	width:100%;
+	bottom:0;
+	z-index:2000;
+	text-shadow:0 1px 0 white;
+	.wood-footer {
+		position:relative;
+	}
+	.toggle-footer {
+		cursor:pointer;
+		width:46px;
+		padding:11px 11px 9px;
+		float:right;
+		border-left: 1px solid rgba(0,0,0,0.15);
+		@include box-shadow(-1px 0 rgba(255,255,255,0.2));
+		.touch & {
+			-webkit-tap-highlight-color:rgba(0,0,0,0);
+			&:active {
+				.three-lines span {
+					background:$blue;
+				}
+			}
+		}
+	}
+	.footer-menu {
+		float: left;
+		margin-left: 8px;
+		font-size: 11px;
+		text-transform: uppercase;
+		font-weight:bold;
+		li {
+			display:inline-block;
+			a {
+				padding:0 6px;
+				color:$gray;
+				text-shadow:0 1px 1px rgba(255,255,255,0.8);
+				&:hover {
+					color:$blue;
+					text-shadow:0 1px 1px rgba(255,255,255,0.5);
+				}
+			}
+		}
+	}
+	.footer-bottom {
+		@include box-shadow(inset 0 2px 12px rgba(0,0,0,0.4));
+		display:none;
+		background:#eee;
+		text-shadow:0 1px 0 white;
+		section {
+			width:(100% / 3);
+			padding:1.5em;
+			float:left;
+		}
+		form {
+			.btn {
+				width:100%;
+				padding:0.5em;
+			}
+		}
+		.btn.more-btn {
+			padding:0.5em 1em;
+			margin-top:1em;
+		}
+		input, textarea {
+			@include box-shadow(0 1px 3px rgba(255,255,255,0.8), 0 -1px 4px rgba(0,0,0,0.1));
+			border:1px solid #ccc;
+			&:focus {
+				border:1px solid $blue;
+			}
+		}
+		textarea {
+			resize:none;
+		}
+		h3 {
+			@include box-shadow(0 1px 0 white);
+			border-bottom:3px solid $grayDark;
+			font-size:20px;
+			padding-bottom:8px;
+			margin-bottom:16px;
+			text-align:left;
+			color:$grayDark;
+		}
+		.contact-group {
+			font-size:16px;
+			margin-bottom:1em;
+			line-height:24px;
+			span {
+				font-size:24px;
+				margin-right:8px;
+				position:relative;
+				top:3px;
+			}
+		}
+	}
+	&.show-bottom {
+		height:auto;
+		.footer-bottom {
+			display:block;
+		}
+		.csstransforms & {
+			top:100%;
+			margin-top:-32px;
+			@include translate(0,0);
+			@include transition(transform 0.3s ease-out);
+		}
+	}
+}

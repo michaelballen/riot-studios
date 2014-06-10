@@ -1,0 +1,171 @@
+$position_border_color: #cfcfcf;
+#apply-inner-content {
+	h2 {
+		font-size:20px;
+	}
+	header {
+		padding:0 0 1em;
+		text-align:center;
+		h1 {
+			display:inline-block;
+			padding:0.3em 0.6em;
+			background:#202120;
+			color:white;
+			@include border-radius(1px);
+			margin-bottom:0.5em;
+		}
+		//margin-bottom:1em;
+		h2 {
+			font-size:16px;
+		}
+		section {
+			border-top:1px solid $position_border_color;
+			padding-top:1.5em;
+			max-width:600px;
+			text-align:left;
+			margin:1.5em auto 0;
+			font-size:12px;
+			p + p {
+				margin-top:1em;
+			}
+		}
+	}
+	article {
+		border-top:1px solid $position_border_color;
+		padding:1.5em 0;
+		p {
+			margin-bottom:0.6em;
+		}
+		h3.error {
+			color:$red;
+			text-align:left;
+			padding:0.6em 0;
+		}
+	}
+	.positions {
+		display:none;
+		@include border-radius(0 0 6px 6px);
+		border-left:1px solid $position_border_color;
+		border-right:1px solid $position_border_color;
+		border-bottom:1px solid $position_border_color;
+		h3 {
+			text-align:left;
+			font-weight:bold;
+			text-transform:uppercase;
+			color:$grayDark;
+			margin-bottom:1em;
+		}
+		section {
+			border-top:1px solid $position_border_color;
+			padding:1em 1em 0.5em;
+			&:first-child {
+				border-top:0 none;
+			}
+		}
+		&.on {
+			display:block;
+		}
+	}
+	input {
+		width:100%;
+		border:1px solid $position_border_color;
+		margin-bottom:0.5em;
+		padding:8px;
+		&:focus {
+			border:1px solid $blue;
+		}
+	}
+	form {
+		position:relative;
+	}
+	label {
+		display:none;
+		&.error {
+			display:block;
+			top:-36px;
+		}
+		.lt-ie9 & {
+			display:block;
+		}
+	}
+	.btn {
+		width:100%;
+		padding:12px;
+		font-size:16px;
+		text-align:left;
+		line-height:1;
+		.fltrt, .three-lines {
+			position:relative;
+			top:1px;
+			float:right;
+		}
+		.three-lines {
+			top:2px;
+		}
+		&.on {
+			@include border-radius(6px 6px 0 0);
+			color:$blue;
+			.three-lines {
+				span {
+					background: $blue;
+				}
+			}
+		}
+	}
+	//resposive apply content-inner
+	@include respond (not-small) {
+		.white-container {
+			margin:0;
+			@include box-shadow(none);
+			width:auto;
+			padding:2em;
+			background:transparent;
+			@include transform(translateZ(0));
+		}
+		h1 {
+			font-size:42px;
+		}
+		header {
+			margin-bottom:32px;
+		}
+		article {
+			border-top:none 0;
+			padding:0;
+			float:left;
+			h2 {
+				text-align:left;
+				font-weight:bold;
+				font-size:24px;
+			}
+		}
+		#apply-positions-container {
+			width:60%;
+			margin-right:3%;
+			font-size:12px;
+		}
+		#apply-get-started {
+			width:37%;
+		}
+		.positions {
+			display:block;
+			@include border-radius(0);
+			border-width:0;
+			border-style:none;
+			h3 {
+				font-size:24px;
+				font-weight:normal;
+				text-transform:none;
+			}
+			section {
+				border-top:1px solid $position_border_color;
+				padding:1em 0 0.5em;
+				&:first-child {
+					border-top:0 none;
+				}
+			}
+			&.on {
+				display:block;
+			}
+		}
+	}//end respond not-small
+}

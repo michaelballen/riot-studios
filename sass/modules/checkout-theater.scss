@@ -1,0 +1,202 @@
+#checkout-theater {
+	@include stretch();
+	@include translate(100%, 0);
+	z-index:1001;
+	display:none;
+	form {
+		display:block;
+	}
+	.form-container {
+		padding:1.5em;
+		position:relative;
+		width:100%;
+	}
+	.loading {
+		background-position:center;
+		@include stretch();
+		background-color:rgba(0,0,0,0.7);
+		z-index:400;
+		display:none;
+		&:after {
+			text-shadow:0 -1px 0 black;
+			content:"PROCESSING";
+			display:block;
+			position:absolute;
+			color:white;
+			text-align:center;
+			top:50%;
+			line-height:40px;
+			margin-top:-50px;
+			width:100%;
+			font-size:1.2em;
+		}
+		&.on {
+			display:block;
+		}
+	}
+	
+	#payment-success {
+		display:none;
+		position:absolute;
+		top:50%;
+		margin-top:-130px;
+		left:0;
+		right:0;
+		.btn {
+			margin-top:0.5em;
+		}
+		z-index:200;
+	}
+	
+	&.success-show {
+		#payment-success {
+			display:block;
+			padding:1em;
+		}
+		form {
+			display:none;
+		}
+		.form-container {
+			position: relative;
+			width: 100%;
+			height:100%;
+			top: 0 !important;
+		}
+		#checkout-shopping-cart {
+			display:none;
+		}
+	}
+	.no-touch & {
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+	body.checkout-on & {
+		display:block;
+		@include transition(transform 0.2s ease-out);
+	}
+	body.checkout-shown & {
+		@include translate(0, 0);
+	}
+	@include respond (not-small){
+		top:30px;
+		left:240px;
+		right:32px;
+		bottom:100px;
+		z-index:100;
+		display:none;
+		background:transparent;
+		.loading {
+			background-position:center 60px;
+			@include border-radius(8px);
+			width:200px;
+			height:100px;
+			border:1px solid $black;
+			margin-top:-50px;
+			margin-left:-100px;
+			left:50%;
+			top:50%;
+			&:after {
+				top:50%;
+				margin-top:-36px;
+				width:100%;
+				font-size:1.2em;
+			}
+			&.on {
+				display:block;
+			}
+		}
+		.frame-outer {
+			@include stretch();
+			@include wood();
+			@include border-radius(16px);
+			@include box-shadow(inset 0 1px 2px 2px rgba(255,255,255,0.3), 0 2px 6px rgba(0,0,0,0.6));
+			max-width:980px;
+			margin:0 auto;
+		}
+		.frame-inner {
+			@include stretch(6px, 6px, 6px, 6px);
+			@include border-radius(15px);
+			@include box-shadow(0 1px 3px 1px rgba(0,0,0,0.2), inset 0 1px 8px rgba(0,0,0,0.4));
+			@include gray-texture();
+			overflow-x:hidden;
+			overflow-y:auto;
+			width:auto;
+		}
+		.form-container {
+			max-width:480px;
+			margin:0 auto;
+		}
+		.close-btn {
+			@include wood();
+			@include box-shadow(0 1px 3px rgba(0,0,0,0.4));
+			@include transition(transform 0.2s ease-out);
+			top:-10px;
+			right:-10px;
+			.no-touch & {
+				&:hover {
+					color:$red;
+					@include transform(rotate(-90deg));
+				}
+			}
+			.touch & {
+				&:active {
+					color:$red;
+				}
+			}
+		}
+		.no-touch & {
+			overflow: visible;
+		}
+		body.checkout-on & {
+			display:block;
+			@include translate(0,-110%);
+			@include transition(transform 0.4s ease-out);
+		}
+		body.checkout-shown & {
+			@include translate(0,0);
+		}
+		.touch & {
+			top:20px;
+			left:248px;
+			right:40px;
+			bottom:52px;
+			@include border-radius(0);
+			max-width:980px;
+			margin:0 auto;
+			@include box-shadow(inset 0 1px 2px 2px rgba(0,0,0,0.1));
+			.frame-outer {
+				position:relative;
+				top:auto;
+				bottom:auto;
+				height:auto;
+				@include gray-texture();
+				@include box-shadow(none);
+				@include border-radius(0);
+			}
+			.frame-inner {
+				top:auto;
+				left:auto;
+				right:auto;
+				bottom:auto;
+				position:relative;
+				@include border-radius(0);
+				@include box-shadow(none);
+				background:transparent;
+				overflow:hidden;
+				width:auto;
+			}
+		}
+	}
+	@include respond(not-medium) {
+		right:$socializer-width + 12;
+		.hide-social & {
+			right:32px;
+		}
+		.touch & {
+			right:$socializer-width + 22;
+		}
+		.touch .hide-social & {
+			right:42px;
+		}
+	}
+}

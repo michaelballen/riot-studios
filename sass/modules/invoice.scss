@@ -1,0 +1,70 @@
+.content-outer.invoice {
+	.content-inner {
+		width:100%;
+	}
+	.invoice-container {
+		@include box-shadow(0 1px 4px rgba(0,0,0,0.25));
+		@include border-radius(4px);
+		background-color:white;
+		width:90%;
+		max-width:640px;
+		margin:16px auto;
+		padding:1em;
+	}
+	h1 {
+		font-size:1.5em;
+		float:left;
+	}
+	h2 {
+		font-size:1.2em;
+		margin-bottom:6px;
+	}
+	h3 {
+		font-size:1em;
+	}
+	.date {
+		float:right;
+	}
+	section {
+		margin-top:1.5em;
+	}
+	.items {
+		.item {
+			padding:6px;
+			background-color:rgb(240,240,240);
+			margin-bottom:2px;
+			&.total {
+				background-color:rgb(230,255,230);
+			}
+		}
+		img {
+			width:24px;
+			height:auto;
+			margin-right:8px;
+			float:left;
+		}
+		h3 {
+			float:left;
+			margin-top:6px;
+		}
+		.qty {
+			float:right;
+			margin-top:4px;
+			font-size:12px;
+		}
+	}
+	@include respond(not-small) {
+		.content-inner {
+			width:auto;
+		}
+		.invoice-container {
+			@include box-shadow(0 -2px 3px rgba(0,0,0,0.2));
+			@include border-radius(0);
+			background-color:transparent;
+			width:90%;
+			max-width:640px;
+			margin:16px auto;
+			padding:1em;
+		}
+	}
+}

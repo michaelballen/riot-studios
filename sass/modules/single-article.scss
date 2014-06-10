@@ -1,0 +1,55 @@
+.content-outer.single-article {
+	article {
+		padding:1em;
+		border-bottom:1px solid #dfdfdf;
+		border-top:1px solid white;
+		&:first-child {
+			border-top:0;
+		}
+		&:last-child {
+			border-bottom:0;
+		}
+		a:hover {
+			text-decoration:none;
+		}
+	}
+	.article-thumbnail {
+		height:60px;
+		width:auto;
+		margin-right:1em;
+		margin-bottom:0.5em;
+	}
+	.author-thumbnail {
+		width:20px;
+		height:auto;
+		margin-right:0.5em;
+	}
+	.author-con {
+		line-height:24px;
+		margin-bottom:0.5em;
+	}
+	h1 {
+		font-size:2em;
+		text-align:center;
+		margin:0.5em 0;
+	}
+	h2 {
+		font-size:1em;
+		display:inline;
+	}
+	p {
+		line-height:1.5;
+		font-size:1.1em; //bump up the font size a bit to make more readable on small devices
+		margin-top:0.5em;
+	}
+	p + p {
+		text-indent: 1.5em
+	}
+	header + p {
+		margin-top:1em;
+		&:first-letter {
+			font-size: 1.5em; line-height: 0;
+			font-weight:bold;
+		}
+	}
+}

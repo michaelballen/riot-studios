@@ -1,0 +1,206 @@
+.movie-page {
+	.content-inner {
+		padding:0;
+	}
+	.content {
+		padding-top:0.5em;
+		background:#0d0d0d url('../img/boc-page-background.jpg') no-repeat scroll center top;
+		@include background-size(100% auto);
+		color:#e1e1e1;
+		h1 {
+			margin:0 0 -0.8em;
+		}
+		h1, h2 {
+			text-align:center;
+			padding:0;
+			img {
+				max-width:100%;
+				width:auto;
+				height:auto;
+				display:block;
+				margin:0 auto;
+			}
+		}
+		h2 {
+			font-size:1.6em;
+			color:$grayLight;
+			img {
+				display:none;
+			}
+			.plain-text {
+				//font-style:italic;
+				display:inline-block;
+			}
+		}
+		.left-side {
+			display:none;
+			float:left;
+			width:38%;
+			position:relative;
+			img {
+				max-width:100%;
+				height:auto;
+				width:auto;
+			}
+		}
+		h3 {
+			@extend .open-sans;
+			text-transform:uppercase;
+			margin-bottom:1em;
+			font-weight:bold;
+			a {
+				color:$yellow;
+				display:inline-block;
+			}
+		}
+		.right-side {
+			padding:0 1.5em;
+			text-align:center;
+		}
+		.btn-container {
+			.btn {
+				width:100%;
+				font-size:20px;
+				padding:10px;
+				margin-top:8px;
+				&:first-child {
+					margin-top:0;
+				}
+			}
+		}
+		.trailer-container {
+			max-width:100%;
+			margin:0 0 1em;
+			iframe {
+				max-width:100%;
+				max-height:320px;
+			}
+		}
+		.social-media {
+			text-align:center;
+			margin-bottom:1em;
+			display:none;
+		}
+		.video-container {
+			text-align:center;
+			padding:1em;
+			margin-bottom:1em;
+			h3 {
+				margin-bottom:1.5em;
+				color:$grayLight;
+				font-size:14px;
+			}
+			img {
+				max-width:100%;
+				width:auto;
+				height:auto;
+			}
+			.no-touch.opacity & {
+				a {
+					opacity:1;
+					@include transition(opacity 0.3s ease-out);
+					&:hover {
+						opacity:0.6;
+					}
+				}
+			}
+		}
+		p {
+			margin-bottom:1em;
+		}
+		header {
+			padding-bottom:2em;
+		}
+		section {
+			padding:1em 1em 4em;
+			article {
+				text-align:center;
+				img {
+					max-width:100%;
+					width:auto;
+					height:auto;
+					display:inline;
+				}
+			}
+			&.copyright {
+				text-align:center;
+				color:$grayLight;
+				h3 {
+					font-size:20px;
+				}
+				article {
+					text-align:center;
+				}
+				p {
+					margin-top:1.5em;
+					font-size:12px;
+				}
+			}
+			&.about {
+				article {
+					max-width:600px;
+					margin:0 auto;
+					text-align:left;
+				}
+			}
+		}
+	}
+	//set nit-picky video sizes for trailer iframe
+	@include respond(custom, 0, 420px){
+		.content .trailer-container iframe {
+			max-height:240px;
+		}
+	}
+	@include respond(not-small){
+		.content {
+			h2 {
+				img {
+					display:inline;
+				}
+				.plain-text {
+					display:none;
+				}
+			}
+			.social-media {
+				display:block;
+			}
+			.btn-container {
+				.btn {
+					width:49%;
+					margin-top:0;
+					margin-left:2%;
+					&:first-child {
+						margin-left:0;
+					}
+				}
+				margin-bottom:1em;
+			}
+		}
+	}
+	@include respond(huge) {
+		.content {
+			header {
+				padding-top:3em;
+				width:96%;
+				margin:0 auto;
+			}
+			.video-container {
+				float:left;
+				width:33%;
+			}
+			h1 {
+				display:none;
+			}
+			.left-side {
+				display:block;
+			}
+			.right-side {
+				float:right;
+				width:62%;
+				.trailer-container {
+					margin-top:60px;
+				}
+			}
+		}
+	}
+}

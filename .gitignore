@@ -1,0 +1,5 @@
+#ignore all video files (too big)
+*.mp4
+*.webm
+.sass-cache
+publish/*

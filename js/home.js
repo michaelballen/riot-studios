@@ -1,0 +1,1 @@
+require(['head', 'plugins/mobile-post-preview', 'plugins/home-slider', 'plugins/article-theater', 'plugins/image-theater', 'plugins/video-theater', 'plugins/home-square-load']);

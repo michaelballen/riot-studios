@@ -1,0 +1,1 @@
+require(['plugins/riot-plugins', 'plugins/believe-me']);

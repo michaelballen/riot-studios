@@ -1,0 +1,126 @@
+#article-theater {
+	@include box-shadow(-4px 0 4px rgba(0,0,0,0.5));
+	@include transition(transform 0.6s ease-in-out);
+	@include gray-texture();
+	@include translate(100%, 0);
+	position:absolute;
+	top:0;
+	bottom:0;
+	width:100%;
+	z-index:2000;
+	display:none;
+	overflow:auto;
+	article {
+		display:block;
+		@include gray-texture();
+		color:$offWhite;
+		text-shadow:0 -1px 0 black;
+		.no-touch & {
+			@include stretch();
+			overflow-y:scroll;
+		}
+	}
+	.article-container {
+		max-width:600px;
+		margin:0 auto;
+		padding:1.5em;
+		em {
+			font-style:italic;
+		}
+	}
+	.article-thumbnail {
+		height:60px;
+		width:auto;
+		margin-right:1em;
+		margin-bottom:0.5em;
+	}
+	.author-thumbnail {
+		width:20px;
+		height:auto;
+		margin-right:0.5em;
+		margin-top:-2px;
+	}
+	.post-date {
+		text-align: center;
+		font-size: 14px;
+		font-style: italic;
+		border-bottom: 1px solid #ccc;
+		padding: 1em 0;
+	}
+	.author-con {
+		line-height:24px;
+		padding-bottom:20px;
+		border-bottom:1px solid #ccc;
+		color:#eee;
+		a {
+			color:#eee;
+			text-shadow:none;
+			text-decoration:none;
+		}
+		.author-thumb {
+			img {
+				width: 32px;
+				@include border-radius(3px);
+				position: relative;
+				top: 6px;
+				margin-right: 6px;
+			}
+		}
+	}
+	h1 {
+		font-size:2em;
+		text-align:center;
+		padding:0.5em 0 0.25em;
+		line-height:1.5;
+		margin:0;
+		border-top:1px solid white;
+	}
+	h2 {
+		font-size:1em;
+		display:inline;
+	}
+	p {
+		line-height:1.5;
+		font-size:1.1em; //bump up the font size a bit to make more readable on small devices
+		margin-top:0.5em;
+	}
+	p + p {
+		text-indent: 1.5em
+	}
+	img {
+		max-width:100%;
+		height:auto;
+	}
+	section {
+		border-top:1px solid white;
+	}
+	p:first-child {
+		margin-top:1em;
+		&:first-letter {
+			font-size: 1.5em; line-height: 0;
+			font-weight:bold;
+		}
+	}
+	@include theater-box;
+	@include respond(not-small) {
+		overflow:visible;
+		article, .no-touch & article {
+			@include stretch(6px, 6px, 6px, 6px);
+			@include border-radius(15px);
+			@include box-shadow(0 1px 3px 1px rgba(0,0,0,0.2), inset 0 1px 8px rgba(0,0,0,0.4));
+			background:#efefef;
+			color:$grayDark;
+			text-shadow: 0 1px 0 white;
+			overflow:scroll;
+		}
+		.author-con {
+			color:#333;
+		}
+	}
+}
+
+.article-theater .content-outer {
+	@include respond(not-small){
+		@include translate(0, 100%);
+	}
+}

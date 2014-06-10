@@ -1,0 +1,274 @@
+
+#job-application {
+	.content-inner {
+		.social-media-input {
+			label {
+				display:block;
+				position:absolute;
+				top:7px;
+				left:0;
+			}
+			span {
+				font-size:16px;
+			}
+			input {
+				width:88%;
+				margin-left:12%;
+			}
+		}
+		.apply-positions {
+			.toggle-button {
+				.three-lines {
+					span {
+						width:20px;
+						background:$grayLight;
+						@include transition(background-color 0.3s);
+					}
+				}
+				&:hover, &.on {
+					.three-lines {
+						span {
+							background:$grayDark;
+						}
+					}
+				}
+			}
+			.positions-list {
+				margin-top:1em;
+			}
+			.positions-list > li {
+				display:block;
+				position:relative;
+				border-top:1px solid $lightApplicationGray;
+				padding:1em 0;
+				.box {
+					display:inline-block;
+					border:1px solid $grayLight;
+					width:1em;
+					height:1em;
+					position:relative;
+					top:2px;
+					margin-right:1em;
+					cursor:pointer;
+					span {
+						color:$green;
+						position:absolute;
+						top:-6px;
+						left:1px;
+						font-size:20px;
+						@include transition(opacity 0.2s);
+						@include opacity(0);
+					}
+					&.checked {
+						span {
+							@include opacity(1);
+						}
+					}
+				}
+				.body {
+					margin-top:1em;
+					font-size:12px;
+					display:none;
+					&.on {
+						display:block;
+					}
+				}
+				.toggle-button {
+					position:absolute;
+					top:1em;
+					right:0;
+				}
+				&:first-child {
+					border-top:none 0;
+				}
+			}
+		}
+		.reference-list {
+			margin-top:1em;
+			>li {
+				position:relative;
+				.content {
+					@include transition(border-color 0.4s);
+					padding:0 0 0 1.5em;
+					border-left:2px solid $lightApplicationGray;
+					position:relative;
+					background:#fdfdfd;
+					z-index:200;
+				}
+				.number-display {
+					@include transition(color 0.4s, background-color 0.4s);
+					position:absolute;
+					top:50%;
+					margin-top:-15px;
+					width:30px;
+					height:30px;
+					@include border-radius(50%);
+					font-size:10px;
+					left:-15px;
+					border:1px solid $lightApplicationGray;
+					z-index:100;
+					span {
+						position:absolute;
+						left:6px;
+						top:50%;
+						margin-top:-5px;
+					}
+				}
+				&.focused {
+					.content {
+						border-left-color:$blue;
+					}
+					.number-display {
+						color:white;
+						background:$blue;
+						border-color: $blue;
+						text-shadow:none;
+					}
+				}
+			}
+		}
+		.btn {
+			@include border-radius(0);
+			@include box-shadow(none);
+			padding:12px;
+		}
+		.resume-input {
+			position:relative;
+			width:100%;
+			background:$blue;
+			input {
+				@include stretch();
+				@include opacity(0);
+				width:100%;
+				z-index:200;
+				height:auto;
+				margin:0;
+				cursor:pointer;
+			}
+			.full, .load {
+				display:none;
+			}
+			&.btn-success {
+				background:$green;
+				.full {
+					display:block;
+				}
+				.empty {
+					display:none;
+				}
+			}
+			&.btn-warning {
+				background:$orange;
+				.load {
+					display:block;
+				}
+				.empty {
+					display:none;
+				}
+			}
+		}
+		@include respond(not-small){
+			.social-media-input {
+				width:48%;
+				display:block;
+				float:left;
+				margin-left:4%;
+				&:first-child {
+					margin-left:0;
+				}
+			}
+			.reference-list {
+				input {
+					width:100%;
+				}
+				.control-group.name, .control-group.phone {
+					width:48%;
+					float:left;
+					margin-left:4%;
+				}
+				.control-group.name {
+					margin-left:0;
+				}
+			}
+		}
+	}
+	.save-container {
+		display:block;
+		position:fixed;
+		top:32px;
+		background:#fdfdfd;
+		@include border-radius(0 4px 4px 0);
+		left:50%;
+		margin-left:360px;
+		height:32px;
+		@include transition(width 0.3s ease-out);
+		width:32px;
+		overflow:hidden;
+		-webkit-transform: translate3d(0,0,0);
+		.save {
+			@include transition(opacity 0.3s ease-out, color 0.3s ease-out);
+		}
+		.saving, .saved, .save, .error {
+			white-space:nowrap;
+			position:absolute;
+			left:8px;
+			top:8px;
+		}
+		.saving, .saved, .error {
+			@include opacity(0);
+			font-size:12px;
+			text-transform:uppercase;
+			letter-spacing:1px;
+			top:10px;
+			@include transition(opacity 0.3s ease-out);
+		}
+		.error {
+			color:$red;
+			span {
+				font-weight:bold;
+				font-size:24px;
+				line-height:0;
+				position:relative;
+				top:5px;
+			}
+		}
+		.saving {
+			color:$blue;
+		}
+		.saved {
+			color:$green;
+		}
+		&:hover {
+			.save {
+				color:$blue;
+			}
+		}
+		&.error {
+			width:80px;
+			.error {
+				@include opacity(1);
+			}
+			.saved, .save, .saving {
+				@include opacity(0);
+			}
+		}
+		&.saving {
+			width:74px;
+			.saving {
+				@include opacity(1);
+			}
+			.saved, .save {
+				@include opacity(0);
+			}
+		}
+		&.saved {
+			width:76px;
+			.saved {
+				@include opacity(1);
+			}
+			.saving, .save, {
+				@include opacity(0);
+			}
+		}
+	}
+}

@@ -1,0 +1,59 @@
+.content-outer .info-con {
+	@include gray-texture();
+	@include box-shadow(0 -2px 4px rgba(0,0,0,0.3));
+	@include transition(transform 0.2s ease-out);
+	position:absolute;
+	width:100%;
+	height:274px;
+	bottom:0;
+	@include translate3d(0, 278px, 0);
+	z-index:799;
+	font-size:12px;
+	h2, h3 {
+		text-align:center;
+	}
+	h2 {
+		font-size:2em;
+		line-height:1.2;
+		overflow:hidden;
+		text-overflow:ellipsis;
+		white-space:nowrap;
+	}
+	h3 {
+		color:#bbb;
+	}
+	p {
+		margin-top:1em;
+		a {
+			text-decoration:none;
+		}
+	}
+	[data-mobile-close] {
+		top:3px;
+		text-align:center;
+		cursor:pointer;
+		border-bottom:1px solid #1f1f1f;
+		border-top:1px solid #2f2f2f;
+		.three-lines {
+			padding:1em 0;
+			margin:0 auto;
+			span {
+				background:$white;
+			}
+		}
+	}
+	.inner-info {
+		border-top:1px solid #2f2f2f;
+		padding:1em;
+	}
+	.i-con {
+		margin:0.25em 0;
+		.ifont {
+			font-size:45px;
+			line-height:1;
+		}
+	}
+	&.previewing {
+		@include translate3d(0, 0px, 0);
+	}
+}

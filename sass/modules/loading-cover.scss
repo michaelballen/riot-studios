@@ -1,0 +1,171 @@
+#loading-cover {
+	background-image: url('../img/wood.jpg');
+	@include stretch();
+	position:fixed;
+	z-index:999;
+	@include transition(transform 0.3s ease-out);
+	@include translate(0,-100%);
+	.csstransforms3d & {
+		@include translate3d(0,-100%);
+	}
+	.backgroundsize & {
+		background-image: url('../img/wood@2x.jpg');
+		background-size: 200px;
+	}
+	.multiplebgs & {
+		background-image:linear-gradient(color-stops(rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.3) 100%)), url('../img/wood.jpg');
+	}
+	.multiplebgs.backgroundsize & {
+		background-image:linear-gradient(color-stops(rgba(255,255,255,0.2) 0%, rgba(0,0,0,0) 66%, rgba(0,0,0,0.1) 80%, rgba(0,0,0,0.3) 100%)), url('../img/wood@2x.jpg');
+		background-size:auto, 200px;
+	}
+	.logo {
+		position:absolute;
+		left:50%;
+		top:50%;
+		margin-left:-150px;
+		margin-top:-220px;
+		width:300px;
+		height:302px;
+		background: url('../img/logo-desktop.png') no-repeat center center;
+		@include background-size(300px);
+	}
+	.dots {
+		display:none;
+		position:absolute;
+		top:50%;
+		margin-top:120px;
+		width:100%;
+		text-align:center;
+		span {
+			width:12px;
+			height:12px;
+			display:inline-block;
+			background:$white;
+			@include border-radius(50%);
+			@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.3));
+			margin:0 8px;
+			-webkit-animation: lightup 1.6s linear infinite;
+			-moz-animation: lightup 1.6s linear infinite;
+			-o-animation: lightup 1.6s linear infinite;
+			animation: lightup 1.6s linear infinite;
+			
+			&:nth-child(2){
+				-webkit-animation-delay:0.2s;
+				-moz-animation-delay:0.2s;
+				-o-animation-delay:0.2s;
+				animation-delay:0.2s;
+			}
+			&:nth-child(3){
+				-webkit-animation-delay:0.4s;
+				-moz-animation-delay:0.4s;
+				-o-animation-delay:0.4s;
+				animation-delay:0.4s;
+			}
+			&:nth-child(4){
+				-webkit-animation-delay:0.6s;
+				-moz-animation-delay:0.6s;
+				-o-animation-delay:0.6s;
+				animation-delay:0.6s;
+			}
+			&:nth-child(5){
+				-webkit-animation-delay:0.8s;
+				-moz-animation-delay:0.8s;
+				-o-animation-delay:0.8s;
+				animation-delay:0.8s;
+			}
+		}
+	}
+	.load-title {
+		position:absolute;
+		top:50%;
+		margin-top:180px;
+		font-style:italic;
+		text-align:center;
+		left:50%;
+		margin-left:-100px;
+		width:200px;
+		color:#666;
+		text-shadow:0 1px 0 rgba(255,255,255,0.3), 0 -1px 0 black;
+		letter-spacing:1px;
+	}
+	.js-unloaded & {
+		@include translate(0,0);
+		.csstransforms3d & {
+			@include translate3d(0,0);
+		}
+	}
+	.cssanimations & {
+		.dots {
+			display:block;
+		}
+	}
+	@include respond(small){
+		.logo {
+			margin-left:-100px;
+			margin-top:-170px;
+			width:200px;
+			height:202px;
+			@include background-size(200px);
+		}
+		.dots {
+			margin-top:60px;
+			span {
+				width:8px;
+				height:8px;
+			}
+		}
+	}
+}
+
+@-webkit-keyframes lightup {
+	0% {
+		background-color:$white;
+	}
+	33% {
+		background-color:$grayDark;
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(0,0,0,0.4));
+	}
+	66% {
+		background-color:$white;
+	}
+}
+
+@-moz-keyframes lightup {
+	0% {
+		background-color:$white;
+	}
+	33% {
+		background-color:$grayDark;
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(0,0,0,0.4));
+	}
+	66% {
+		background-color:$white;
+	}
+}
+
+@-o-keyframes lightup {
+	0% {
+		background-color:$white;
+	}
+	33% {
+		background-color:$grayDark;
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(0,0,0,0.4));
+	}
+	66% {
+		background-color:$white;
+	}
+}
+
+@keyframes lightup {
+	0% {
+		background-color:$white;
+	}
+	33% {
+		background-color:$grayDark;
+		@include box-shadow(inset 0 1px 2px rgba(0,0,0,0.5), 0 1px 2px rgba(255,255,255,0.3), 0 0 8px rgba(0,0,0,0.4));
+	}
+	66% {
+		background-color:$white;
+	}
+}
